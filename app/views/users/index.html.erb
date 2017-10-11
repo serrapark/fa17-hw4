@@ -1,0 +1,67 @@
+<h2>Tables</h2>
+
+<div>
+  <h4>Users</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.age %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h4>Cat</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cats.each do |cat| %>
+        <tr>
+          <td><%= cat.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h4>Todo</h4>
+  <table>
+    <tbody>
+      <% @todos.each do |todo| %>
+        <tr>
+          <td><%= todo.tasks %></td>
+          <td><%= todo.finished %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= form_for @todo do |t| %>
+  <%= t.label :tasks %>
+  <%= t.text_field :tasks%>
+
+  <%= t.label :finished %>
+  <%= t.check_box :finished%>
+
+  <%= t.submit %>
+<% end %>
